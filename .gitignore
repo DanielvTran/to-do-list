@@ -1,0 +1,31 @@
+# Node.js dependencies
+*/node_modules/
+
+# Python dependencies
+*/__pycache__/
+*.py[cod]
+*.egg-info/
+*/venv/
+*/env/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+
+# System files
+*/.DS_Store
+*/Thumbs.db
+
+# Environment variables
+*/.env
+
+# Compiled output
+*/dist/
+*/build/
+*/out/
+
+# IDE settings (for popular IDEs)
+*/.vscode/
+*/.idea/
