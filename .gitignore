@@ -1,12 +1,10 @@
-# Node.js dependencies
+# Node.js dependencies (root and subdirectories)
+node_modules/
 */node_modules/
 
-# Python dependencies
-*/__pycache__/
-*.py[cod]
-*.egg-info/
-*/venv/
-*/env/
+# Lock files for Node.js and root package.json
+yarn.lock
+pnpm-lock.yaml
 
 # Logs and temporary files
 *.log
@@ -15,17 +13,25 @@
 *.bak
 
 # System files
+.DS_Store
+Thumbs.db
 */.DS_Store
 */Thumbs.db
 
 # Environment variables
+.env
 */.env
 
-# Compiled output
+# Compiled output (root and subdirectories)
+dist/
+build/
+out/
 */dist/
 */build/
 */out/
 
 # IDE settings (for popular IDEs)
+.vscode/
+.idea/
 */.vscode/
 */.idea/

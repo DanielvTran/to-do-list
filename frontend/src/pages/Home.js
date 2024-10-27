@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1>Welcome to TaskStream</h1>
-      <h2 className="subheading">All in one application for managing your tasks!"</h2>
+      <h2 className="subheading">All in one application for managing your tasks!</h2>
       <button className="login" onClick={() => navigate("/login")}>
         LOGIN
       </button>

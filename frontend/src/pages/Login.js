@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 
 // Styles
-import "../styles/login.css";
+import "../styles/auth.css";
 
 const Login = () => {
   // States
@@ -21,19 +21,19 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="auth-container">
       <h3 className="heading">LOGIN</h3>
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={handleSubmit}>
         {/* Email Input*/}
         <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Email" />
 
         {/* Password Input*/}
-        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="password" />
+        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Password" />
 
         {error && <div className="error">{error}</div>}
 
         {/* Submission Button*/}
-        <button className="login-button" disabled={isloading}>
+        <button className="auth-button" disabled={isloading}>
           LOGIN
         </button>
 
