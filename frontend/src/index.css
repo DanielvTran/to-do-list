@@ -1,0 +1,364 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+/* Layout */
+:root {
+  --primary: #778a35;
+  --primary-hover: #99af4c;
+  --error: #e7195a;
+}
+
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+header {
+  background: #ebebe8;
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+}
+
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Dashboard Page */
+.no-tasks-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary);
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.no-tasks-container h3 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.settings {
+  display: flex;
+  max-width: fit-content;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sort-container,
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.workouts-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+
+.workout-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.workout-details span:hover {
+  background: var(--error);
+  color: #fff;
+}
+
+/* Workout Form */
+label,
+input {
+  display: block;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border 0.4s ease, color 0.4s ease;
+}
+
+input:hover {
+  border: 1px solid #aeaeae;
+}
+
+select {
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border 0.4s ease, color 0.4s ease;
+}
+
+select:hover {
+  border: 1px solid #aeaeae;
+}
+
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+form button:hover {
+  background: #27d3a2;
+  color: #fff;
+}
+
+div .input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 10px;
+}
+
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2 ease;
+}
+/* 
+nav button:hover {
+  background: #f3f3f3;
+  color: #27d3a2;
+  border: 2px solid #27d3a2;
+} */
+
+/* Auth Forms */
+form.signup,
+form.login {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+form.signup p,
+form.login p {
+  text-align: center;
+}
+
+form.signup a,
+form.login a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+/* form.signup a:hover,
+form.login a:hover {
+  color: var(--primary-hover);
+} */
+
+form.login button,
+form.signup button {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  margin: 20px 0px;
+}
+
+/* form.login button:hover,
+form.signup button:hover {
+  background-color: var(--primary-hover);
+} */
+
+form.login input,
+form.signup input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+/* Large desktops (up to 1920px and above) */
+@media (max-width: 1920px) {
+  header .container {
+    max-width: 1800px;
+  }
+
+  .pages {
+    max-width: 1800px;
+  }
+}
+
+/* Desktops (up to 1440px) */
+@media (max-width: 1440px) {
+  header .container {
+    max-width: 1350px;
+  }
+
+  .pages {
+    max-width: 1350px;
+  }
+}
+
+/* Laptops and desktops (up to 1280px) */
+@media (max-width: 1280px) {
+  header .container {
+    max-width: 1200px;
+  }
+
+  .pages {
+    max-width: 1200px;
+  }
+}
+
+/* Small laptops (up to 1024px) */
+@media (max-width: 1024px) {
+  header .container {
+    max-width: 950px;
+  }
+
+  .pages {
+    max-width: 950px;
+  }
+}
+
+/* Tablets (up to 768px) */
+@media (max-width: 768px) {
+  header .container {
+    max-width: 700px;
+  }
+
+  .pages {
+    max-width: 700px;
+  }
+}
+
+/* Medium devices (phones, up to 425px) */
+@media (max-width: 425px) {
+  body {
+    font-size: smaller;
+  }
+
+  header a {
+    font-size: smaller;
+  }
+
+  .workouts-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+}
+
+/* Small devices (phones, up to 375px) */
+@media (max-width: 375px) {
+  body {
+    font-size: x-small;
+  }
+
+  .workouts-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+}
+
+/* Extra small devices (phones, 0px and up) */
+@media (max-width: 320px) {
+  body {
+    font-size: xx-small;
+  }
+
+  .workouts-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+}
