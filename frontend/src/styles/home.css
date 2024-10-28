@@ -30,7 +30,6 @@ body {
 
 /* Subheading Styling */
 .subheading {
-  display: inline-block;
   color: #666666;
   font-size: 1.5rem;
   text-align: center;
@@ -50,34 +49,25 @@ button {
   margin: 10px 0;
 }
 
-/* LOGIN Button */
-button.login {
+/* Button Colors */
+.login-button {
   background-color: var(--secondary);
   color: var(--primary);
   border: 2px solid var(--primary);
 }
-
-/* Hover effect for LOGIN Button */
-button.login:hover {
+.signup-button {
   background-color: var(--primary);
   color: #fff;
   border: 2px solid var(--primary);
-  box-shadow: 0px 4px 15px rgba(119, 138, 53, 0.4);
+}
+
+/* Button Hover Effects */
+.login-button:hover,
+.signup-button:hover {
+  background-color: var(--primary);
+  color: #fff;
   transform: translateY(-2px);
-}
-
-/* SIGNUP Button */
-button.signup {
-  background-color: var(--primary);
-  color: #fff;
-  border: 2px solid var(--primary);
-}
-
-/* Hover effect for SIGNUP Button */
-button.signup:hover {
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0px 4px 20px rgba(153, 175, 76, 0.5);
+  box-shadow: 0px 4px 15px rgba(119, 138, 53, 0.4);
 }
 
 /* Responsive Styles */
@@ -85,86 +75,56 @@ button.signup:hover {
 /* Extra Extra Small Screens (up to 370px) */
 @media (max-width: 370px) {
   .home-container h1 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
-
   .subheading {
     font-size: 1rem;
-    margin: 10px 0 20px 0;
   }
-
   button {
     font-size: 0.9rem;
     padding: 8px 12px;
-    width: 50%;
-  }
-}
-
-/* Extra Small Screens (up to 450px) */
-@media (min-width: 371px) and (max-width: 450px) {
-  .home-container h1 {
-    font-size: 1.5rem;
-  }
-
-  .subheading {
-    font-size: 1.2rem;
-    margin: 10px 0 30px 0;
-  }
-
-  button {
-    font-size: 1rem;
-    padding: 8px 16px;
-    width: 50%;
+    width: 60%;
   }
 }
 
 /* Small Screens (up to 640px) */
-@media (min-width: 451px) and (max-width: 640px) {
+@media (min-width: 371px) and (max-width: 640px) {
+  .home-container h1 {
+    font-size: 1.6rem;
+  }
+  .subheading {
+    font-size: 1.2rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    width: 50%;
+  }
+}
+
+/* Medium Screens (up to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
   .home-container h1 {
     font-size: 1.8rem;
   }
-
   .subheading {
-    font-size: 1.3rem;
-    margin: 15px 0 40px 0;
+    font-size: 1.4rem;
   }
-
   button {
     font-size: 1.1rem;
-    padding: 10px 18px;
+    padding: 10px 20px;
     width: 40%;
   }
 }
 
-/* Medium Screens (up to 768px) */
-@media (min-width: 641px) and (max-width: 768px) {
+/* Large Screens (up to 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
   .home-container h1 {
     font-size: 2rem;
   }
-
   .subheading {
-    font-size: 1.4rem;
-    margin: 20px 0 50px 0;
+    font-size: 1.6rem;
   }
-
-  button {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    width: 35%;
-  }
-}
-
-/* Large Screens (up to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .home-container h1 {
-    font-size: 2.3rem;
-  }
-
-  .subheading {
-    font-size: 1.5rem;
-    margin: 20px 0 50px 0;
-  }
-
   button {
     font-size: 1.2rem;
     padding: 12px 24px;
@@ -172,56 +132,17 @@ button.signup:hover {
   }
 }
 
-/* Extra Large Screens (up to 1280px) */
-@media (min-width: 1025px) and (max-width: 1280px) {
+/* Extra Large Screens (1281px and up) */
+@media (min-width: 1281px) {
   .home-container h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
-
-  .subheading {
-    font-size: 1.6rem;
-    margin: 30px 0 60px 0;
-  }
-
-  button {
-    font-size: 1.3rem;
-    padding: 12px 24px;
-    width: 25%;
-  }
-}
-
-/* Double Extra Large Screens (up to 1536px) */
-@media (min-width: 1281px) and (max-width: 1536px) {
-  .home-container h1 {
-    font-size: 2.8rem;
-  }
-
   .subheading {
     font-size: 1.8rem;
-    margin: 40px 0 70px 0;
   }
-
   button {
     font-size: 1.4rem;
     padding: 14px 28px;
-    width: 20%;
-  }
-}
-
-/* Triple Extra Large Screens (1537px and up) */
-@media (min-width: 1537px) {
-  .home-container h1 {
-    font-size: 3rem;
-  }
-
-  .subheading {
-    font-size: 2rem;
-    margin: 50px 0 80px 0;
-  }
-
-  button {
-    font-size: 1.5rem;
-    padding: 16px 32px;
-    width: 35%;
+    width: 25%;
   }
 }

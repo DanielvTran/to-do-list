@@ -14,24 +14,6 @@ body {
   font-family: "Poppins";
 }
 
-header {
-  background: #ebebe8;
-}
-
-header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header a {
-  color: #333;
-  text-decoration: none;
-}
-
 .pages {
   max-width: 1400px;
   padding: 20px;
@@ -186,35 +168,6 @@ input.error {
   border: 1px solid var(--error);
 }
 
-/* Navbar */
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav a {
-  margin-left: 10px;
-}
-
-nav button {
-  background: #fff;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-family: "Poppins";
-  cursor: pointer;
-  font-size: 1em;
-  margin-left: 10px;
-  transition: background 0.2s ease, color 0.2s ease, border 0.2 ease;
-}
-/* 
-nav button:hover {
-  background: #f3f3f3;
-  color: #27d3a2;
-  border: 2px solid #27d3a2;
-} */
-
 /* Auth Forms */
 form.signup,
 form.login {
@@ -263,102 +216,4 @@ form.signup input {
   border-radius: 0;
   border-bottom: 2px solid var(--primary);
   color: var(--primary);
-}
-
-/* Large desktops (up to 1920px and above) */
-@media (max-width: 1920px) {
-  header .container {
-    max-width: 1800px;
-  }
-
-  .pages {
-    max-width: 1800px;
-  }
-}
-
-/* Desktops (up to 1440px) */
-@media (max-width: 1440px) {
-  header .container {
-    max-width: 1350px;
-  }
-
-  .pages {
-    max-width: 1350px;
-  }
-}
-
-/* Laptops and desktops (up to 1280px) */
-@media (max-width: 1280px) {
-  header .container {
-    max-width: 1200px;
-  }
-
-  .pages {
-    max-width: 1200px;
-  }
-}
-
-/* Small laptops (up to 1024px) */
-@media (max-width: 1024px) {
-  header .container {
-    max-width: 950px;
-  }
-
-  .pages {
-    max-width: 950px;
-  }
-}
-
-/* Tablets (up to 768px) */
-@media (max-width: 768px) {
-  header .container {
-    max-width: 700px;
-  }
-
-  .pages {
-    max-width: 700px;
-  }
-}
-
-/* Medium devices (phones, up to 425px) */
-@media (max-width: 425px) {
-  body {
-    font-size: smaller;
-  }
-
-  header a {
-    font-size: smaller;
-  }
-
-  .workouts-container {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 20px;
-  }
-}
-
-/* Small devices (phones, up to 375px) */
-@media (max-width: 375px) {
-  body {
-    font-size: x-small;
-  }
-
-  .workouts-container {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 20px;
-  }
-}
-
-/* Extra small devices (phones, 0px and up) */
-@media (max-width: 320px) {
-  body {
-    font-size: xx-small;
-  }
-
-  .workouts-container {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 20px;
-  }
 }

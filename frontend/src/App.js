@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Navbar from "./components/Navbar";
+import Nav from "./components/Nav";
 
 function App() {
   // Invoke the hooks
@@ -20,8 +20,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* Navbar */}
-        <Navbar />
+        {/* Nav */}
+        <Nav />
 
         {/* Body of the page */}
         <div className="pages">

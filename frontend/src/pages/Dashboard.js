@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-// Componenets
+// Components
 import TaskDetails from "../components/TaskDetails";
 import TaskForm from "../components/TaskForm";
 
