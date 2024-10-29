@@ -7,6 +7,9 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+// Styles
+import "../styles/taskdetails.css";
+
 // Task details content card
 const TaskDetails = ({ tasks }) => {
   // Invoke the hooks
@@ -36,35 +39,35 @@ const TaskDetails = ({ tasks }) => {
   };
 
   return (
-    <div className="workout-details">
-      {/* Render the title */}
-      <h4>{tasks.title}</h4>
+    <div className="task-details-container">
+      <div className="card-left">
+        {/* Render the priority */}
+        <p className="task-priority">{tasks.priority}</p>
+      </div>
+      <div className="card-right">
+        {/* Render the title */}
+        <h4 className="task-title">{tasks.title}</h4>
 
-      {/* Render the description */}
-      <p>
-        <strong>Description: </strong>
-        {tasks.description}
-      </p>
+        {/* Render the description */}
+        <p className="task-description">
+          <strong>Description: </strong>
+          {tasks.description}
+        </p>
 
-      {/* Render the isCompleted */}
-      <p>
-        <strong>Status: </strong>
-        {tasks.isCompleted ? "Completed" : "In Progress"}
-      </p>
+        {/* Render the isCompleted */}
+        <p className="task-status">
+          <strong>Status: </strong>
+          {tasks.isCompleted ? "Completed" : "In Progress"}
+        </p>
 
-      {/* Render the priority */}
-      <p>
-        <strong>Priority: </strong>
-        {tasks.priority}
-      </p>
+        {/* Render the time stamp of when the task was created */}
+        <p className="task-creation-date">{formatDistanceToNow(new Date(tasks.createdAt), { addSuffix: true })}</p>
 
-      {/* Render the time stamp of when the task was created */}
-      <p>{formatDistanceToNow(new Date(tasks.createdAt), { addSuffix: true })}</p>
-
-      {/* Render delete button */}
-      <span className="material-symbols-outlined" onClick={handleClick}>
-        delete
-      </span>
+        {/* Render delete button */}
+        <span className="material-symbols-outlined" onClick={handleClick}>
+          delete
+        </span>
+      </div>
     </div>
   );
 };

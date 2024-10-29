@@ -9,6 +9,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import TaskDetails from "../components/TaskDetails";
 import TaskForm from "../components/TaskForm";
 
+// Styles
+import "../styles/dashboard.css";
+
 const Dashboard = () => {
   // Invoke the hooks
   const { tasks, dispatch } = useTasksContext();
@@ -50,46 +53,50 @@ const Dashboard = () => {
   });
 
   return (
-    <div>
-      <div className="settings">
-        <div className="filter-container">
-          <span class="material-symbols-outlined">tune</span>
+    <div className="dashboard-container">
+      <div className="tasks-container">
+        {/* Render form */}
+        <TaskForm />
 
-          <select
-            className="priority-filter"
-            id="priority-filter"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          >
-            <option value="" disabled>
-              Select Priority
-            </option>
-            <option value="All">All</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
+        <div className="tasks">
+          {/* Filter Settings */}
+          <div className="settings">
+            <div className="filter-container">
+              <span class="material-symbols-outlined">tune</span>
 
-        <div className="sort-container">
-          <span class="material-symbols-outlined">sort</span>
+              <select
+                className="priority-filter"
+                id="priority-filter"
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              >
+                <option value="" disabled>
+                  Select Priority
+                </option>
+                <option value="All">All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
 
-          <select
-            className="title-sort"
-            id="title-sort"
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-          >
-            <option value="" disabled></option>
-            <option value="ASC">(A-Z)</option>
-            <option value="DESC">(Z-A)</option>
-          </select>
-        </div>
-      </div>
+            <div className="sort-container">
+              <span class="material-symbols-outlined">sort</span>
 
-      <div className="workouts-container">
-        {/* Render tasks */}
-        <div className="workouts">
+              <select
+                className="title-sort"
+                id="title-sort"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                <option value="" disabled></option>
+                <option value="ASC">(A-Z)</option>
+                <option value="DESC">(Z-A)</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Render tasks */}
           {/* Only render tasks if there are workouts*/}
           {sortedTasks && sortedTasks.length > 0 ? (
             sortedTasks.map((task) => (
@@ -101,9 +108,6 @@ const Dashboard = () => {
             </div>
           )}
         </div>
-
-        {/* Render form */}
-        <TaskForm />
       </div>
     </div>
   );

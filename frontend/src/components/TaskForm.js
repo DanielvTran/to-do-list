@@ -5,20 +5,31 @@ import { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+// Libraries
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+// Styles
+import "../styles/taskform.css";
+
 const TaskForm = () => {
   // States to store information
   const { dispatch } = useTasksContext();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
+  const [date, setDate] = useState(null);
   const [priority, setPriority] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { user } = useAuthContext();
 
+  // Control Variables
+  const today = new Date();
+
   // Handler Functions
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent refereshing of page
+    e.preventDefault(); // Prevent refreshing of page
 
     // If user is not logged in do not try and send a request
     if (!user) {
@@ -26,7 +37,7 @@ const TaskForm = () => {
       return;
     }
 
-    const task = { title, description, isCompleted, priority };
+    const task = { title, description, isCompleted, priority, date };
 
     // POST request for task submission
     const response = await fetch("/api/tasks", {
@@ -53,6 +64,7 @@ const TaskForm = () => {
       setDescription("");
       setIsCompleted(false);
       setPriority("");
+      setDate(null);
       setError(null);
       setEmptyFields([]);
       console.log("new task added:", json);
@@ -61,50 +73,65 @@ const TaskForm = () => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      {/* Form Title*/}
-      <h3>Add a New Task</h3>
-
-      <div>
-        {/* Title Input*/}
-        <label>Task Title:</label>
+    <form className="new-task-form" onSubmit={handleSubmit}>
+      <div className="form-inputs-container">
+        {/* Title Input */}
+        <label className="form-label">Task Title:</label>
         <input
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          className={emptyFields.includes("title") ? "error" : " "} // Change class name depending on if there is a value in title
+          className={`form-input ${emptyFields.includes("title") ? "error" : ""}`}
         />
 
-        {/* Description Input*/}
-        <label>Description:</label>
+        {/* Description Input */}
+        <label className="form-label">Description:</label>
         <input
           type="text"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
-          className={emptyFields.includes("title") ? "error" : " "} // Change class name depending on if there is a value in title
+          className={`form-input ${emptyFields.includes("description") ? "error" : ""}`}
         />
 
-        {/* Completed Selection Input*/}
-        <div className="input-group">
-          <label htmlFor="priority">Priority:</label>
-          <select
-            id="priority"
-            value={priority}
-            onChange={(e) => setPriority(e.target.value)}
-            className={emptyFields.includes("priority") ? "error" : " "} // Change class name depending on if there is a value in description
-          >
-            <option value="" disabled></option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
+        <div className="row-input-container">
+          {/* Due Date Input */}
+          <div className="input-group">
+            <label className="form-label">Due Date:</label>
+            <DatePicker
+              selected={date}
+              onChange={(date) => setDate(date)}
+              dateFormat="dd/MM/yyyy"
+              placeholderText=""
+              className="form-date"
+              minDate={today}
+            />
+          </div>
+
+          {/* Priority Selection Input */}
+          <div className="input-group">
+            <label htmlFor="priority" className="form-label">
+              Priority:
+            </label>
+            <select
+              id="priority"
+              value={priority}
+              onChange={(e) => setPriority(e.target.value)}
+              className={`form-select ${emptyFields.includes("priority") ? "error" : ""}`}
+            >
+              <option value="" disabled></option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      {/* Submission Button*/}
-      <button>Add Task</button>
-      {/* Display Error on page */}
-      {error && <div className="error">{error}</div>}
+      {/* Submission Button */}
+      <button className="add-task-button">Add Task</button>
+
+      {/* Display Error Message */}
+      {error && <div className="error-message">{error}</div>}
     </form>
   );
 };

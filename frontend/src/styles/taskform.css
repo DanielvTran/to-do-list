@@ -1,0 +1,202 @@
+/* Layout and Theme Variables */
+:root {
+  --primary: #778a35;
+  --primary-hover: #99af4c;
+  --secondary: #ebebe8;
+  --error: #e7195a;
+  --input-bg: #f5f5f5;
+  --input-border: #cccccc;
+}
+
+/* Form Container */
+.new-task-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-inputs-container {
+  width: 100%;
+}
+
+/* Label Styling */
+.form-label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Input Styling */
+.form-input {
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Calendar Styling */
+.form-date {
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid var(--input-border);
+  box-sizing: border-box;
+  transition: border 0.4s ease, color 0.4s ease;
+  text-align: center;
+}
+
+.form-date:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Select Dropdown Styling */
+.form-select {
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid var(--input-border);
+  box-sizing: border-box;
+  transition: border 0.4s ease, color 0.4s ease;
+  text-align: center;
+}
+
+.form-select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Add Task Button Styling */
+.add-task-button {
+  width: 25%;
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  margin-top: 50px;
+}
+
+.add-task-button:hover {
+  background: var(--primary-hover);
+  color: #fff;
+}
+
+/* Input Group Styling */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Row Input Container */
+.row-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Error Styling */
+.error-message {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.form-input.error,
+.form-select.error {
+  border: 1px solid var(--error);
+}
+
+/* Responsive Design Adjustments */
+
+/* Extra Small Screens (up to 450px) */
+@media (max-width: 450px) {
+  .new-task-form {
+    padding: 10px;
+  }
+
+  .add-task-button {
+    width: 100%;
+  }
+
+  .row-input-container {
+    flex-direction: column;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Screens (451px to 640px) */
+@media (min-width: 451px) and (max-width: 640px) {
+  .row-input-container {
+    flex-direction: column;
+  }
+
+  .form-label {
+    font-size: 1rem;
+  }
+
+  .add-task-button {
+    width: 80%;
+  }
+}
+
+/* Medium Screens (641px to 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .row-input-container {
+    flex-direction: row;
+  }
+
+  .input-group {
+    width: 48%; /* Equal width for inputs in a row */
+  }
+
+  .add-task-button {
+    width: 70%;
+  }
+}
+
+/* Large Screens (769px and up) */
+@media (min-width: 769px) {
+  .new-task-form {
+    max-width: 100%;
+  }
+
+  .row-input-container {
+    gap: 20px;
+  }
+
+  .input-group {
+    width: 45%;
+  }
+
+  .add-task-button {
+    width: 50%;
+  }
+}

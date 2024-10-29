@@ -1,0 +1,62 @@
+/* Layout */
+:root {
+  --primary: #778a35;
+  --primary-hover: #99af4c;
+  --error: #e7195a;
+}
+
+.task-details-container {
+  display: flex;
+  gap: 40px;
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+/* Left section for priority, takes full height and centers content */
+.card-left {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.task-priority {
+  color: #fff;
+}
+
+.task-title {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.task-details-container p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.task-details-container span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.task-details-container span:hover {
+  background: var(--error);
+  color: #fff;
+}

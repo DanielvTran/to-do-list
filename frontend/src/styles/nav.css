@@ -39,6 +39,7 @@
 
 /* Logout Button */
 .nav-logout-button {
+  width: 100%;
   background: #fff;
   color: var(--primary);
   border: 2px solid var(--primary);
@@ -87,7 +88,7 @@
 @media (max-width: 370px) {
   .nav-container {
     max-width: 100%;
-    padding: 8px 10px;
+    padding: 10px 24px;
   }
   .nav-title {
     font-size: 1.4rem;
@@ -109,8 +110,8 @@
 /* Small Screens (up to 640px) */
 @media (min-width: 371px) and (max-width: 640px) {
   .nav-container {
-    max-width: 95%;
-    padding: 10px 20px;
+    max-width: 100%;
+    padding: 10px 24px;
   }
   .nav-title {
     font-size: 1.6rem;
@@ -129,8 +130,8 @@
 /* Medium Screens (up to 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .nav-container {
-    max-width: 85%;
-    padding: 15px 30px;
+    max-width: 100%;
+    padding: 10px 24px;
   }
   .nav-title {
     font-size: 1.8rem;
@@ -149,7 +150,8 @@
 /* Large Screens (up to 1280px) */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .nav-container {
-    max-width: 90%;
+    max-width: 100%;
+    padding: 10px 24px;
   }
   .nav-title {
     font-size: 2rem;
@@ -157,9 +159,12 @@
   .nav-user-email {
     font-size: 1.2rem;
   }
-  .nav-login-link,
-  .nav-signup-link,
   .nav-logout-button {
+    font-size: 1rem;
+    padding: 5px 18px;
+  }
+  .nav-login-link,
+  .nav-signup-link {
     font-size: 1rem;
     padding: 10px 15px;
   }
@@ -169,17 +174,20 @@
 @media (min-width: 1281px) {
   .nav-container {
     max-width: 1400px;
-    padding: 20px 40px;
+    padding: 10px 24px;
   }
   .nav-title {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
   .nav-user-email {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+  .nav-logout-button {
+    font-size: 1.2rem;
+    padding: 5px 18px;
   }
   .nav-login-link,
-  .nav-signup-link,
-  .nav-logout-button {
+  .nav-signup-link {
     font-size: 1.2rem;
     padding: 12px 18px;
   }
