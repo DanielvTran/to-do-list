@@ -6,6 +6,7 @@ import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Libraries
+import { format } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -18,7 +19,7 @@ const TaskForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
-  const [date, setDate] = useState(null);
+  const [dueDate, setDueDate] = useState(null);
   const [priority, setPriority] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
@@ -37,7 +38,7 @@ const TaskForm = () => {
       return;
     }
 
-    const task = { title, description, isCompleted, priority, date };
+    const task = { title, description, isCompleted, priority, dueDate };
 
     // POST request for task submission
     const response = await fetch("/api/tasks", {
@@ -64,7 +65,7 @@ const TaskForm = () => {
       setDescription("");
       setIsCompleted(false);
       setPriority("");
-      setDate(null);
+      setDueDate(null);
       setError(null);
       setEmptyFields([]);
       console.log("new task added:", json);
@@ -98,11 +99,14 @@ const TaskForm = () => {
           <div className="input-group">
             <label className="form-label">Due Date:</label>
             <DatePicker
-              selected={date}
-              onChange={(date) => setDate(date)}
+              selected={dueDate}
+              onChange={(dueDate) => {
+                setDueDate(format(dueDate, "MM/dd/yyyy"));
+              }}
               dateFormat="dd/MM/yyyy"
               placeholderText=""
               className="form-date"
+              locale="en-AU"
               minDate={today}
             />
           </div>

@@ -6,6 +6,10 @@
 }
 
 .dashboard-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-direction: row-reverse;
   width: 100%;
 }
 
@@ -46,17 +50,14 @@
   justify-content: space-between;
 }
 
-/* Main layout for tasks and form */
-.tasks-container {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 20px;
-  align-items: flex-start;
+.main {
+  width: 100%;
+  max-height: 500px;
 }
 
-/* Task details section with scrollable content */
+/* Main layout for tasks and form */
 .tasks {
-  width: 70%;
+  width: 90%;
   max-height: 500px;
   overflow-y: auto;
   padding-right: 10px;
@@ -83,13 +84,19 @@
 
 /* Responsive layout for screens below 900px */
 @media (max-width: 900px) {
-  .tasks-container {
+  .dashboard-container {
     flex-direction: column;
+  }
+
+  .main {
+    max-height: unset;
+    width: 100%;
   }
 
   .tasks {
     max-height: unset;
     width: 100%;
+    overflow-y: hidden; /* Hide vertical scrollbar on smaller screens */
   }
 
   .new-task-form {

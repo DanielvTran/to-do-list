@@ -28,7 +28,7 @@ const getTask = async (req, res) => {
 
   // Find documents in database by id
   try {
-    const task = await Task.findById(id); // Find all tasks in database and sort based on dasta created in descending order
+    const task = await Task.findById(id); // Find all tasks in database and sort based on date created in descending order
     res.status(200).json(task); // Respond 200(OK) display tasks
   } catch (error) {
     return res.status(404).json({ error: "No such task" }); // Return Respond 404(NOT FOUND) display error message
@@ -37,7 +37,7 @@ const getTask = async (req, res) => {
 
 // CREATE new task
 const createTask = async (req, res) => {
-  const { title, description, isCompleted, priority, createdAt } = req.body; // Store body objects in specific variables
+  const { title, description, isCompleted, dueDate, priority, createdAt } = req.body; // Store body objects in specific variables
 
   let emptyFields = []; // Store form fields that are empty
 
@@ -60,7 +60,7 @@ const createTask = async (req, res) => {
   // Add document to database
   try {
     const user_id = req.user._id; // Get the user id
-    const task = await Task.create({ title, description, isCompleted, priority, createdAt, user_id }); // Create new task document from model schema
+    const task = await Task.create({ title, description, isCompleted, priority, dueDate, createdAt, user_id }); // Create new task document from model schema
     res.status(200).json(task); // Respond 200(OK) display the task document
   } catch (error) {
     res.status(400).json({ error: error.message }); // Respond 400(ERROR) display error message

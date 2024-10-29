@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+// Libraries
+import { format, parseISO } from "date-fns";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 // Components
 import TaskDetails from "../components/TaskDetails";
 import TaskForm from "../components/TaskForm";
@@ -16,7 +21,7 @@ const Dashboard = () => {
   // Invoke the hooks
   const { tasks, dispatch } = useTasksContext();
   const [filter, setFilter] = useState("All");
-  const [sortOrder, setSortOrder] = useState("ASC");
+  const [titleSortOrder, setTitleSortOrder] = useState("ASC");
   const { user } = useAuthContext();
 
   useEffect(() => {
@@ -43,65 +48,56 @@ const Dashboard = () => {
   // Filter tasks based on the selected priority
   const filteredTasks = tasks ? tasks.filter((task) => (filter === "All" ? true : task.priority === filter)) : [];
 
-  // Sort the filtered tasks by title (ascending or descending)
+  // Sort tasks by title (A-Z or Z-A)
   const sortedTasks = filteredTasks.sort((a, b) => {
-    if (sortOrder === "ASC") {
-      return a.title.localeCompare(b.title); // Sort alphabetically (A-Z)
-    } else {
-      return b.title.localeCompare(a.title); // Sort in reverse order (Z-A)
-    }
+    return titleSortOrder === "ASC" ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
   });
 
   return (
     <div className="dashboard-container">
-      <div className="tasks-container">
-        {/* Render form */}
-        <TaskForm />
+      {/* Render form */}
+      <TaskForm />
 
-        <div className="tasks">
-          {/* Filter Settings */}
-          <div className="settings">
-            <div className="filter-container">
-              <span class="material-symbols-outlined">tune</span>
-
-              <select
-                className="priority-filter"
-                id="priority-filter"
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-              >
-                <option value="" disabled>
-                  Select Priority
-                </option>
-                <option value="All">All</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-              </select>
-            </div>
-
-            <div className="sort-container">
-              <span class="material-symbols-outlined">sort</span>
-
-              <select
-                className="title-sort"
-                id="title-sort"
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
-              >
-                <option value="" disabled></option>
-                <option value="ASC">(A-Z)</option>
-                <option value="DESC">(Z-A)</option>
-              </select>
-            </div>
+      <div className="main">
+        {/* Filter Settings */}
+        <div className="settings">
+          <div className="filter-container">
+            <span className="material-symbols-outlined">tune</span>
+            <select
+              className="priority-filter"
+              id="priority-filter"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+            >
+              <option value="" disabled>
+                Select Priority
+              </option>
+              <option value="All">All</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
           </div>
 
+          {/* Title Sort Options */}
+          <div className="sort-container">
+            <span className="material-symbols-outlined">sort</span>
+            <select
+              className="title-sort"
+              id="title-sort"
+              value={titleSortOrder}
+              onChange={(e) => setTitleSortOrder(e.target.value)}
+            >
+              <option value="ASC">A-Z</option>
+              <option value="DESC">Z-A</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="tasks">
           {/* Render tasks */}
-          {/* Only render tasks if there are workouts*/}
           {sortedTasks && sortedTasks.length > 0 ? (
-            sortedTasks.map((task) => (
-              <TaskDetails key={task._id} tasks={task} /> // Render task based on the id of the task
-            ))
+            sortedTasks.map((task) => <TaskDetails key={task._id} tasks={task} />)
           ) : (
             <div className="no-tasks-container">
               <h3>There are no tasks 🥲</h3>

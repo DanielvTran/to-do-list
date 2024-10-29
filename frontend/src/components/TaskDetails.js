@@ -54,6 +54,12 @@ const TaskDetails = ({ tasks }) => {
           {tasks.description}
         </p>
 
+        {/* Render the due date */}
+        <p className="task-due-date">
+          <strong>Due Date: </strong>
+          {tasks.dueDate}
+        </p>
+
         {/* Render the isCompleted */}
         <p className="task-status">
           <strong>Status: </strong>
