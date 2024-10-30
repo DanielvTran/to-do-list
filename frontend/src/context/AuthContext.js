@@ -19,20 +19,18 @@ export const authReducer = (state, action) => {
 
 // Allow children of the context to use the authentication states globally
 export const AuthContextProvider = ({ children }) => {
-  // State to use authReducer and have intial state value of users
+  // State to use authReducer and have initial state value of users
   const [state, dispatch] = useReducer(authReducer, { user: null });
 
-  // Only fire this funciton once at the very start, when Context Provider render
+  // Only fire this function once at the very start, when Context Provider render
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user")); // Get if the token/user is avaible or not
 
-    // Log the user in with avaible token from local storage if user is found
+    // Log the user in with available token from local storage if user is found
     if (user) {
       dispatch({ type: "LOGIN", payload: user });
     }
   }, []);
-
-  console.log("AuthContext state: ", state);
 
   return (
     // Dispatch to update state 'users' using the authReducer

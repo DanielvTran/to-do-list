@@ -14,7 +14,11 @@ export const tasksReducer = (state, action) => {
       return { tasks: [action.payload, ...state.tasks] };
     case "DELETE_TASK":
       return {
-        tasks: state.tasks.filter((w) => w._id !== action.payload._id),
+        tasks: state.tasks.filter((task) => task._id !== action.payload._id),
+      };
+    case "UPDATE_TASK":
+      return {
+        tasks: state.tasks.map((task) => (task._id === action.payload._id ? action.payload : task)),
       };
     default:
       return state;
@@ -23,7 +27,7 @@ export const tasksReducer = (state, action) => {
 
 // Allow children of the context to use the task states globally
 export const TasksContextProvider = ({ children }) => {
-  // State to use TaskReducer and have intial state value of tasks
+  // State to use TaskReducer and have initial state value of tasks
   const [state, dispatch] = useReducer(tasksReducer, {
     tasks: null,
   });

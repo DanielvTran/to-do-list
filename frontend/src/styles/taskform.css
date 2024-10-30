@@ -51,6 +51,7 @@
 
 /* Calendar Styling */
 .form-date {
+  background-color: var(--input-bg);
   font-family: "Poppins", sans-serif;
   border-radius: 8px;
   padding: 8px;
@@ -68,6 +69,8 @@
 
 /* Select Dropdown Styling */
 .form-select {
+  background-color: var(--input-bg);
+
   font-family: "Poppins", sans-serif;
   border-radius: 8px;
   padding: 8px;

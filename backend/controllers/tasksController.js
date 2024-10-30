@@ -98,8 +98,15 @@ const updateTask = async (req, res) => {
   try {
     const task = await Task.findOneAndUpdate(
       { _id: id }, // Find specific task with the id and delete it
-      { ...req.body } // Update document using the values in the req.body
+      { ...req.body }, // Update document using the values in the req.body
+      { new: true, runValidators: true } // Ensure it returns updated document
     );
+
+    // Check if task was found and updated
+    if (!task) {
+      return res.status(404).json({ error: "No such task" });
+    }
+
     res.status(200).json(task); // Respond 200(OK) display the task document
   } catch (error) {
     res.status(400).json({ error: error.message }); // Respond 400(ERROR) display error message

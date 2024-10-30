@@ -2,6 +2,8 @@
 
 // Required imports
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; // Used for handling routing both static and dynamic
+import React from "react";
+import Modal from "react-modal";
 
 // Hooks
 import { useAuthContext } from "./hooks/useAuthContext";
@@ -12,6 +14,9 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
+
+// Initialise Modal Library
+Modal.setAppElement("#root");
 
 function App() {
   // Invoke the hooks

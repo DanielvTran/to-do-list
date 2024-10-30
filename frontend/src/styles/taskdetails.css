@@ -1,4 +1,4 @@
-/* Layout */
+/* General Layout */
 :root {
   --primary: #778a35;
   --primary-hover: #99af4c;
@@ -44,9 +44,10 @@
   font-size: 0.9em;
 }
 
-.task-details-container span {
+/* Delete Icon Styling */
+.delete-icon {
   position: absolute;
-  top: 20px;
+  top: 110px;
   right: 20px;
   cursor: pointer;
   background: #f1f1f1;
@@ -56,7 +57,25 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.task-details-container span:hover {
+.delete-icon:hover {
   background: var(--error);
+  color: #fff;
+}
+
+/* Edit Icon Styling */
+.edit-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #e0e0e0;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.edit-icon:hover {
+  background: var(--primary-hover);
   color: #fff;
 }

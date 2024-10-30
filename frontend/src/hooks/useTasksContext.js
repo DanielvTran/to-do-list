@@ -11,7 +11,7 @@ export const useTasksContext = () => {
 
   // Check if the context given is being used in the context provider
   if (!context) {
-    throw Error("useTasksContextt must be used inside an TasksContextProvider");
+    throw Error("useTasksContext must be used inside an TasksContextProvider");
   }
 
   return context;
