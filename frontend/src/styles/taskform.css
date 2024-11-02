@@ -70,7 +70,6 @@
 /* Select Dropdown Styling */
 .form-select {
   background-color: var(--input-bg);
-
   font-family: "Poppins", sans-serif;
   border-radius: 8px;
   padding: 8px;
@@ -97,7 +96,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .add-task-button:hover {
@@ -131,7 +130,14 @@
 
 .form-input.error,
 .form-select.error {
+  width: 100%;
   border: 1px solid var(--error);
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0px;
 }
 
 /* Responsive Design Adjustments */
@@ -139,6 +145,7 @@
 /* Extra Small Screens (up to 450px) */
 @media (max-width: 450px) {
   .new-task-form {
+    width: 100%;
     padding: 10px;
   }
 
@@ -157,6 +164,10 @@
 
 /* Small Screens (451px to 640px) */
 @media (min-width: 451px) and (max-width: 640px) {
+  .new-task-form {
+    width: 100%;
+  }
+
   .row-input-container {
     flex-direction: column;
   }

@@ -7,6 +7,8 @@
   --primary-hover: #99af4c;
   --secondary: #ebebe8;
   --error: #e7195a;
+  --error-bg: #e43b70;
+
   --input-bg: #f5f5f5;
   --input-border: #cccccc;
 }
@@ -83,10 +85,15 @@ body {
 }
 
 .error {
+  background-color: rgba(255, 0, 0, 0.1); /* Light red with transparency */
   color: var(--error);
+  padding: 5px;
   font-size: 0.9rem;
   margin-top: 10px;
-  width: 95%;
+  width: 84%;
+  border: 1px solid rgba(255, 0, 0, 0.5); /* Red border with some transparency */
+  border-radius: 4px; /* Optional: Rounded corners for a softer look */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
 }
 
 p {
